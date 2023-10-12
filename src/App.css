@@ -11,25 +11,21 @@
 
 .body-calculator{
   width:246px;
-  height: 400px;
+  height: 470px;
   display: flex;
   flex-direction: column;
   align-items:center;
   justify-content: space-between;
-  background-color: aqua;
-  gap: 5px;
-  padding: 10px;
-  border-radius: 20px;
-
+  background-color: black;
+  color: white;
+  box-shadow: 19px 3px 15px -8px rgba(64, 63, 63, 0.75);
 }
 
 .screen{
-  background-color: black;
-  border-radius: 13px;
   color: white;
   height: 25%;
   width: 100%;
-  padding: 5px;
+  padding: 5%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -45,10 +41,17 @@
   grid-template-rows: repeat(5, 1fr);
   height: 70%;
   gap: 2px;
+  background-color: rgb(2, 24, 24);
+  border-radius: 20px 20px 0 0;
 }
 
 button{
   border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .button-zero{
@@ -59,7 +62,6 @@ button{
 .brand{
   grid-column: span 4;
   background-image: radial-gradient(circle at 50% -3.03%, #4d4347 0, #443f40 12.5%, #3b3a3a 25%, #303534 37.5%, #24302f 50%, #172b2b 62.5%, #082627 75%, #002125 87.5%, #001d23 100%);
-  border-radius: 1.5rem;
   font-family: 'Orbitron', sans-serif;
   color: rgb(255, 255, 255);
   display: flex;

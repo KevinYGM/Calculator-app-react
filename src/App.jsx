@@ -28,8 +28,8 @@ function App() {
             <button className="button-two">2</button>
             <button className="button-three">3</button>
             <button className="button-addition">+</button>
-            <button className="button-zero">0</button>
             <button className="button-decimal">.</button>
+            <button className="button-zero">0</button>
             <button className="button-result">=</button>
           </div>
           <div className="brand">KYGM</div>
