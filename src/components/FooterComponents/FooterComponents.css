@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;700&display=swap');
+
+/*----------------Footer-------------------*/
+
+footer{
+  margin-top: auto;
+  border-top: 2px double red;
+  border-bottom: 2px double red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  background-color: black;
+  color: white;
+  height: 15vh;
+  width: 100%;
+  padding: 20px;
+  
+}
+
+footer .logo{
+  display: flex;
+  font-family: 'Roboto Slab', serif;
+  align-items: center;
+}
+
+footer .logo span{
+  display: block;
+  font-size: 85px;
+  font-weight: bolder;
+}
+
+footer .logo h3 {
+  display: block;
+  flex-basis: 40px;
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+footer .react {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10%; 
+  font-size: 15px;
+  font-weight: 300;
+}
+
+footer .react span:nth-child(1) {
+  font-size: 40px;
+}
+
+footer .linkedin{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+}

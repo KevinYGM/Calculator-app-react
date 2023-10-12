@@ -1,0 +1,18 @@
+
+header{
+  background-color: white;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  
+}
+
+header span:nth-child(2){
+  font-size: 50px;
+  line-height: 50px;
+}
