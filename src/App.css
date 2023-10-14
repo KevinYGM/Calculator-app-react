@@ -2,11 +2,12 @@
 
 .container-main{
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items:center;
   justify-content: center;
+  margin: 30px 0;
 }
 
 .body-calculator{
@@ -21,89 +22,20 @@
   box-shadow: 19px 3px 15px -8px rgba(64, 63, 63, 0.75);
 }
 
+/*--------header-calculator-----------*/
 .header-calculator{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
   font-size: 17px;
   width: 100%;
 }
 
-.header-calculator span{
+.header-calculator span:nth-child(2){
   color:#0f9df2;
 }
 
-.screen{
-  color: white;
-  height: 25%;
-  width: 100%;
-  padding: 5%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  font-size: 30px;
-  font-weight:bold;
-
-}
-
-.buttons{
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  height: 70%;
-  gap: 15px;
-  background-color: rgb(5, 12, 23);
-  border-radius: 20px 20px 0 0;
-  padding: 10px;
-}
-
-button{
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 23px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.container-specials-buttons{
-  grid-column: span 3;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-button:hover
-{
- background-image: linear-gradient(to right, #d61414, #641327);
- box-shadow: 0px 0px 2px 1px #641327;
-}
-
-button:active
-{
- background-image: linear-gradient(to right, #88d63b, #d4f324);
- box-shadow: 0px 0px 2px 1px #88d63b;
- color: black;
-}
-
-.container-operator-buttons{
-  grid-row: span 4;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-.highlighted{
-  display: grid;
-  background-image: linear-gradient(to right, #0f9df2, #11415e);
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 1px #11415e;
-  align-items: center;
-  border: none;
-  overflow: hidden;
-}
-
-.highlighted button{
-  border-radius: 3px;
-}
+/*---------------------BRAND---------------------*/
 
 .brand{
   grid-column: span 4;
@@ -131,31 +63,3 @@ button:active
   transform: rotate3d(0, 1, 0, 360deg) scale(1.5);
 }
 
-.button-c{
-  padding-top: 8px;
-}
-
-/*-------------Screen--------*/
-
-.screen{
-  display: flex;
-  flex-direction: column;
-}
-
-.screen .screen-operation{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  font-size: 20px;
-}
-
-.screen .screen-result{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 35px;
-}
-
-.screen .screen-result span:nth-child(1){
-  color: #0f9df2;
-}

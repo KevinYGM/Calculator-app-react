@@ -1,12 +1,12 @@
 import React from 'react'
 import './HeaderComponents.css';
-import { FcCalculator } from "react-icons/fc";
+import { ImCalculator } from "react-icons/im";
 
 export const HeaderComponents = () => {
   return (
     <header>
       <span>Calculator React App</span>
-      <span><FcCalculator /></span> 
+      <span><ImCalculator /></span> 
     </header>
   )
 }

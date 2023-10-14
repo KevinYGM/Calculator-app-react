@@ -19,7 +19,7 @@ export const FooterComponents = () => {
         </div>
         
         <a href="https://www.linkedin.com/in/kevinygm/" className='linkedin' target="_blank" rel="noreferrer">
-          <BsLinkedin />
+          <span><BsLinkedin /></span>
           <span>Programmer Linkedin</span>
         </a>
       </footer>
