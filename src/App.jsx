@@ -7,9 +7,43 @@ import { NumbersButtonComponents } from './components/ButtonsComponents/NumbersB
 import { SpecialButtons } from './components/ButtonsComponents/SpecialButtons';
 import { OperatorButtons } from './components/ButtonsComponents/OperatorButtons';
 import { ResultButton } from './components/ButtonsComponents/ResultButton';
+import { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 function App() {
-  return (
+
+  const [input, setInput] = useState('');
+
+  /*function that serves to capture the pressed key on the screen*/
+  const addInput = val => {
+    if ((val === '.' || val === '*' || val === '/' || val === '%') 
+        && 
+      (input.slice(-1) === '.' ||input.slice(-1) === '+' || input.slice(-1) === '-' || input.slice(-1) === '*' || input.slice(-1) === '/' || input.slice(-1) === '%')){
+      setInput(input);
+
+    }else if((val === '+' || val === '-') && (input.slice(-1) === '.' ||input.slice(-1) === '+' || input.slice(-1) === '-') ){
+      setInput(input);
+
+    }else{
+    setInput(input + val);
+  }
+};
+
+
+const calculateResult = () => {
+  try {
+      if (input) {
+        setInput(evaluate(input));
+        setInput(evaluate(input).toString());
+      } else {
+        alert("Por favor ingrese valores para realizar los cálculos")
+      }
+  } catch (error) {
+    alert("Ha ocurrido un error al realizar el cálculo. Por favor revise la expresión matemática e intente nuevamente.");
+  }
+  };
+
+return (
     <>
       <HeaderComponents />
       
@@ -21,13 +55,18 @@ function App() {
             <span><FaReact /></span>
           </div>
 
-          <Screen />
+          <Screen
+              inputOperation = { input } 
+            />
 
           <div className="buttons">
-            <SpecialButtons />
-            <OperatorButtons />
-            <NumbersButtonComponents />
-            <ResultButton />
+            <SpecialButtons 
+                    specialAccions = { setInput }
+                    deleteOneToOne = { input }
+                    addInput = { addInput } />
+            <OperatorButtons addInput = { addInput } />
+            <NumbersButtonComponents addInput = { addInput } />
+            <ResultButton calculateResult= { calculateResult } />
           </div>
 
           <div className="brand">
@@ -35,7 +74,7 @@ function App() {
           </div>
         </div>
       </main>
-      
+
       <FooterComponents />
     </>
   );
