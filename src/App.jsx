@@ -13,13 +13,22 @@ import { KeysConnections } from './helper/keysConnections';
 
 function App() {
 
-  KeysConnections();
-
+/*states*/ 
   const [input, setInput] = useState('');
   const [screenResult, setScreenResult] = useState('0');
   const [stateButtonResult, setStateButtonResult] = useState(false);
 
-  /*function that serves to capture the pressed key on the screen*/
+ /* function (helper) that makes the connection with the keyboard keys*/ 
+  KeysConnections();
+
+
+ /* function that checks if the pressed button is an operator*/ 
+  const isOperator = val => {
+    return isNaN(val) && (val !== '.') && (val !== '=') && (val !== '%');
+  };
+
+  
+/*function that serves to capture the pressed key on the screen*/
   const addInput = (val) => {
 
     setStateButtonResult(false);
@@ -37,7 +46,6 @@ function App() {
     setInput(input + val);
   }
 
-
   if(stateButtonResult && isOperator(val)){
     setInput(screenResult + val);
     setScreenResult("0");
@@ -48,7 +56,7 @@ function App() {
 };
 
 
-
+/* function that performs the calculations */
 const calculateResult = () => {
   
 setStateButtonResult(true);
@@ -59,19 +67,14 @@ const sanitizedInput = input.replace(/x/g, "*").replace(/÷/g, "/");
     if (sanitizedInput) {
       setScreenResult(evaluate(sanitizedInput).toString());
     } else {
-      alert("Por favor ingrese valores para realizar los cálculos");
+      alert("Please enter values ​​to perform calculations.");
     }
   } catch (error) {
     alert(
-      "Ha ocurrido un error al realizar el cálculo. Por favor revise la expresión matemática e intente nuevamente."
+      "An error occurred while performing the calculation. Please check the mathematical expression and try again."
     );
   }
 }
-
-
-const isOperator = val => {
-  return isNaN(val) && (val !== '.') && (val !== '=') && (val !== '%');
-};
 
 
 return (

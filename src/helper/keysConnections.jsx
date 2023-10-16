@@ -10,21 +10,16 @@ export const KeysConnections = () => {
 
     setIsButtonPressed(true);
 
-    // buttonTurn.classList.add("blink");
-    // setTimeout(function () {
-    //   buttonTurn.classList.remove("blink");
-    //   buttonTurn.click();
-    //   setIsButtonPressed(true);
-    // }, 100);
-
-    buttonTurn.classList.add("boton-activado")
-    buttonTurn.click();
-    setIsButtonPressed(true);
-    buttonTurn.classList.remove("boton-activado")
-  };
+    buttonTurn.classList.add("blink");
+    setTimeout(function () {
+      buttonTurn.classList.remove("blink");
+      buttonTurn.click();
+      setIsButtonPressed(true);
+    }, 100);
+  }
 
   document.addEventListener("keydown", function (event) {
-    console.log(event.code, event.key);
+  
 
 /*----------------NumbersbuttonComponent------------------------*/    
     if (event.key === "7") {
@@ -107,6 +102,7 @@ export const KeysConnections = () => {
 
 /*---------------------ResultButton------------------------*/
     if (event.key === "Enter") {
+      event.preventDefault();
       let buttonTurn = document.getElementById("button-result");
       effectButtons(buttonTurn);
     }

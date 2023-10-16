@@ -15,19 +15,27 @@ export const SpecialButtons = (props) => {
     }
   }
 
-
   const eraseAll = () => {
     props.setInput('');
     props.setScreenResult('0');
   }
     
-
-
-  return (
+return (
     <div className="container-specials-buttons highlighted">
-      <button className="button-clear" id="button-clear" onClick={ eraseAll }>AC</button>
-      <button className="button-c" id="button-c" onClick={ eraseOneToOne }><FaBackspace /></button>
-      <button className="button-percentager" id="button-percentager" onClick={(e) => props.addInput(e.target.textContent)}>%</button>
+      <button className="button-clear" 
+              id="button-clear" 
+              onClick={ eraseAll }
+              >AC</button>
+
+      <button className="button-c" 
+              id="button-c" 
+              onClick={ eraseOneToOne }>
+              <FaBackspace /></button>
+
+      <button className="button-percentager" 
+              id="button-percentager" 
+              onClick={(e) => props.addInput(e.target.textContent)}
+              >%</button>
     </div>
   )
 }
