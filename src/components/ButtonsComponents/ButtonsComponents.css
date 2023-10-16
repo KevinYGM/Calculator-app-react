@@ -68,3 +68,21 @@ button:active
 .button-c{
   padding-top: 8px;
 }
+
+.blink {
+  animation: blinker 100ms linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    background-image: linear-gradient(to right, #88d63b, #d4f324);
+    box-shadow: 0px 0px 2px 1px #88d63b;
+    color: black;
+  }
+}
+
+.boton-activado{
+    background-image: linear-gradient(to right, #88d63b, #d4f324);
+    box-shadow: 0px 0px 2px 1px #88d63b;
+    color: black;
+}

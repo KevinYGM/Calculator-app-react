@@ -9,16 +9,25 @@ import { OperatorButtons } from './components/ButtonsComponents/OperatorButtons'
 import { ResultButton } from './components/ButtonsComponents/ResultButton';
 import { useState } from 'react';
 import { evaluate } from 'mathjs';
+import { KeysConnections } from './helper/keysConnections';
 
 function App() {
 
+  KeysConnections();
+
   const [input, setInput] = useState('');
+  const [screenResult, setScreenResult] = useState('0');
+  const [stateButtonResult, setStateButtonResult] = useState(false);
 
   /*function that serves to capture the pressed key on the screen*/
-  const addInput = val => {
-    if ((val === '.' || val === '*' || val === '/' || val === '%') 
+  const addInput = (val) => {
+
+    setStateButtonResult(false);
+
+
+     if ((val === '.' || val === 'x' || val === '÷' || val === '%') 
         && 
-      (input.slice(-1) === '.' ||input.slice(-1) === '+' || input.slice(-1) === '-' || input.slice(-1) === '*' || input.slice(-1) === '/' || input.slice(-1) === '%')){
+      (input.slice(-1) === '.' ||input.slice(-1) === '+' || input.slice(-1) === '-' || input.slice(-1) === 'x' || input.slice(-1) === '÷' || input.slice(-1) === '%')){
       setInput(input);
 
     }else if((val === '+' || val === '-') && (input.slice(-1) === '.' ||input.slice(-1) === '+' || input.slice(-1) === '-') ){
@@ -27,21 +36,43 @@ function App() {
     }else{
     setInput(input + val);
   }
+
+
+  if(stateButtonResult && isOperator(val)){
+    setInput(screenResult + val);
+    setScreenResult("0");
+  }else if(stateButtonResult && !isOperator(val)){
+    setInput(val);
+    setScreenResult("0");
+  }
 };
 
 
+
 const calculateResult = () => {
+  
+setStateButtonResult(true);
+  
+const sanitizedInput = input.replace(/x/g, "*").replace(/÷/g, "/");
+  
   try {
-      if (input) {
-        setInput(evaluate(input));
-        setInput(evaluate(input).toString());
-      } else {
-        alert("Por favor ingrese valores para realizar los cálculos")
-      }
+    if (sanitizedInput) {
+      setScreenResult(evaluate(sanitizedInput).toString());
+    } else {
+      alert("Por favor ingrese valores para realizar los cálculos");
+    }
   } catch (error) {
-    alert("Ha ocurrido un error al realizar el cálculo. Por favor revise la expresión matemática e intente nuevamente.");
+    alert(
+      "Ha ocurrido un error al realizar el cálculo. Por favor revise la expresión matemática e intente nuevamente."
+    );
   }
-  };
+}
+
+
+const isOperator = val => {
+  return isNaN(val) && (val !== '.') && (val !== '=') && (val !== '%');
+};
+
 
 return (
     <>
@@ -57,15 +88,24 @@ return (
 
           <Screen
               inputOperation = { input } 
+              screenResult = { screenResult }
             />
 
           <div className="buttons">
             <SpecialButtons 
-                    specialAccions = { setInput }
-                    deleteOneToOne = { input }
-                    addInput = { addInput } />
-            <OperatorButtons addInput = { addInput } />
-            <NumbersButtonComponents addInput = { addInput } />
+                    setInput = { setInput }
+                    input = { input }
+                    setScreenResult = { setScreenResult }
+                    screenResult = { screenResult }
+                    stateButtonResult = { stateButtonResult }
+                    addInput = { addInput }
+                    />
+            <OperatorButtons 
+                    addInput = { addInput }
+                    />
+            <NumbersButtonComponents 
+                    addInput = { addInput }
+                    />
             <ResultButton calculateResult= { calculateResult } />
           </div>
 
@@ -79,5 +119,6 @@ return (
     </>
   );
 }
+
 
 export default App;
