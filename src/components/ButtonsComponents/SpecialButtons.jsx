@@ -4,6 +4,7 @@ import { FaBackspace } from 'react-icons/fa';
 export const SpecialButtons = (props) => {
 
   const eraseOneToOne = () => {
+    props.setStatePostOperator(false);
     if(props.stateButtonResult){
       props.setInput(props.input);
     }else{
@@ -16,6 +17,7 @@ export const SpecialButtons = (props) => {
   }
 
   const eraseAll = () => {
+    props.setStatePostOperator(false);
     props.setInput('');
     props.setScreenResult('0');
   }

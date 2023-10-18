@@ -11,6 +11,7 @@
   flex-direction: column;
   font-size: 30px;
   font-weight:bold;
+  /*overflow: hidden;*/
 }
 
 .screen .screen-operation{
@@ -19,13 +20,16 @@
   display: flex;
   justify-content: flex-end;
   font-size: 20px;
+  overflow: scroll;
 }
 
 .screen .screen-result{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 35px;
+ overflow-x: scroll;
 }
 
 .screen .screen-result span:nth-child(1){
